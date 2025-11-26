@@ -5,58 +5,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task 4</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        td, th {
+            padding: 8px;
+        }
+    </style>
 </head>
 
 <body>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quam est debitis. Architecto quas asperiores
-        blanditiis a fugiat impedit eum dolorem cum rerum dolorum iste amet, ratione assumenda expedita maiores?
-    </p>
-    <p class="border">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore eligendi nemo est? Unde, doloribus, magnam
-        necessitatibus eos quia aliquam eaque quis aspernatur placeat sequi autem officiis, modi a exercitationem totam.
-    </p>
-    <p class="border">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi doloremque magni ut corporis, perspiciatis
-        tempore in, accusantium suscipit nemo quod saepe. Autem laudantium adipisci nemo magni repudiandae repellat
-        error. Dolore?
-    </p>
-    <ul>
-        <li>Item 01</li>
-        <li>Item 02</li>
-        <li>Item 03</li>
-        <li>Item 04</li>
-        <li>Item 05</li>
-    </ul>
-    <ul class="border">
-        <li>Item 01</li>
-        <li>Item 02</li>
-        <li>Item 03</li>
-        <li>Item 04</li>
-        <li>Item 05</li>
-    </ul>
-</body>
+    <table id="statsTable">
+        <tr>
+            <td>Январь</td>
+            <td>120</td>
+        </tr>
+        <tr>
+            <td>Февраль</td>
+            <td>140</td>
+        </tr>
+        <tr>
+            <td>Март</td>
+            <td>115</td>
+        </tr>
+        <tr>
+            <td>Апрель</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>Март</td>
+            <td>80</td>
+        </tr>
+        <tr>
+            <td>Июнь</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td>Июль</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <th>Итого</th>
+            <th id="output"></th>
+        </tr>
+    </table>
+   <script>
+  
+    let table = document.querySelector("#statsTable");
 
-<script>
-   
-    let lists = document.querySelectorAll("ul");
+  
+    let rows = table.querySelectorAll("tr:not(:last-child)");
 
-   
-    for (let i = 0; i < lists.length; i++) {
+    rows.forEach(function(row) {
+        let valueCell = row.cells[1]; 
+        let value = Number(valueCell.textContent); 
 
-        let currentUl = lists[i];                     
-        let firstLi = currentUl.querySelector("li:first-child"); 
-        let lastLi = currentUl.querySelector("li:last-child");   
-
-       
-        if (firstLi) {
-            firstLi.style.border = "1px solid red";
+        if (value > 100) {
+            row.style.backgroundColor = "green";
+        } else if (value < 100) {
+            row.style.backgroundColor = "red";
+        } else {
+            row.style.backgroundColor = ""; 
         }
-
-        if (lastLi) {
-            lastLi.style.border = "1px solid red";
-        }
-    }
+    });
 </script>
+</body>
 
 </html>
