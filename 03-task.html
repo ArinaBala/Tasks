@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 03</title>
+    <title>Task 3</title>
 </head>
+
 <body>
-    <script>
-        class Car {
-            model;
-
-            constructor(model) {
-                this.model = model;
-            }
-
-            move() {
-                console.log(`Машина ${this.model} двигается со скоростью 80 км/час`);
-            }
-        }
-
-        class Truck extends Car {
-            weight;
-            maxCargo;
-
-            constructor(model, maxCargo) {
-                super(model); 
-                this.maxCargo = maxCargo;
-            }
-
-            loadCargo(weight) {
-                if (weight > this.maxCargo) {
-                    console.log(`Этот грузовик не может перевозить более ${this.maxCargo}кг груза`);
-                } else {
-                    this.weight = weight;
-                    console.log(`В грузовик загружено ${this.weight}кг.`);
-                }
-            }
-        }
-
-        let v1 = new Car("Mazda");
-        v1.move();
-
-        let v2 = new Truck("Volvo", 1000);
-        v2.loadCargo(1500);
-        v2.loadCargo(900);
-        v2.move();
-    </script>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quam est debitis. Architecto quas asperiores
+        blanditiis a fugiat impedit eum dolorem cum rerum dolorum iste amet, ratione assumenda expedita maiores?
+    </p>
+    <p class="border">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore eligendi nemo est? Unde, doloribus, magnam
+        necessitatibus eos quia aliquam eaque quis aspernatur placeat sequi autem officiis, modi a exercitationem totam.
+    </p>
+    <p class="border">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi doloremque magni ut corporis, perspiciatis
+        tempore in, accusantium suscipit nemo quod saepe. Autem laudantium adipisci nemo magni repudiandae repellat
+        error. Dolore?
+    </p>
+    <ul>
+        <li>Item 01</li>
+        <li>Item 02</li>
+        <li>Item 03</li>
+        <li>Item 04</li>
+        <li>Item 05</li>
+    </ul>
+    <ul class="border">
+        <li>Item 01</li>
+        <li>Item 02</li>
+        <li>Item 03</li>
+        <li>Item 04</li>
+        <li>Item 05</li>
+    </ul>
 </body>
+
+<script>
+    
+   let items = document.querySelectorAll("ul.border li");
+
+  
+    for (let i = 0; i < items.length; i++) {
+        items[i].style.border = "1px solid red";
+    }
+</script>
+
 </html>
