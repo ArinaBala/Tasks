@@ -5,26 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task 2</title>
+
+    <style>
+        #color-sample {
+            width: 250px;
+            height: 70px;
+            margin: 10px;
+        }
+    </style>
 </head>
 
 <body>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quam est debitis. Architecto quas asperiores
-        blanditiis a fugiat impedit eum dolorem cum rerum dolorum iste amet, ratione assumenda expedita maiores?
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore eligendi nemo est? Unde, doloribus, magnam
-        necessitatibus eos quia aliquam eaque quis aspernatur placeat sequi autem officiis, modi a exercitationem totam.
-    </p>
-    <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi doloremque magni ut corporis, perspiciatis
-        tempore in, accusantium suscipit nemo quod saepe. Autem laudantium adipisci nemo magni repudiandae repellat
-        error. Dolore?
-    </p>
-</body>
+    <div id="color-sample"></div>
+    <p>Цвет: </p>
 
-<script>
-   
+    <script>
+      
     function getRandomColor() {
         var letters = '0123456789ABCDEF';
         var color = '#';
@@ -34,11 +30,15 @@
         return color;
     }
 
-     let paragraphs = document.querySelectorAll("p");
-
-         for (let i = 0; i < paragraphs.length; i++) {
-              paragraphs[i].style.border = "2px solid" + getRandomColor();
-         }
+    let colorSampleDiv = document.querySelector("#color-sample");
+    let colorParagraph = document.querySelector("p"); 
+    let color = getRandomColor();
+    
+    colorSampleDiv.style.backgroundColor = color;
+    colorParagraph.textContent = "Цвет: " + color;
 </script>
+    </script>
+</body>
 
 </html>
+
