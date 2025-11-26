@@ -1,48 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 01</title>
+    <title>Task 1</title>
 </head>
+
 <body>
-    <script>
-        class Car {
-            start() {
-                console.log("Двигатель запущен.");
-            }
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quam est debitis. Architecto quas asperiores
+        blanditiis a fugiat impedit eum dolorem cum rerum dolorum iste amet, ratione assumenda expedita maiores?
+    </p>
+    <p class="border">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore eligendi nemo est? Unde, doloribus, magnam
+        necessitatibus eos quia aliquam eaque quis aspernatur placeat sequi autem officiis, modi a exercitationem totam.
+    </p>
+    <p class="border">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi doloremque magni ut corporis, perspiciatis
+        tempore in, accusantium suscipit nemo quod saepe. Autem laudantium adipisci nemo magni repudiandae repellat
+        error. Dolore?
+    </p>
+    <ul>
+        <li>Item 01</li>
+        <li>Item 02</li>
+        <li>Item 03</li>
+        <li>Item 04</li>
+        <li>Item 05</li>
+    </ul>
+    <ul class="border">
+        <li>Item 01</li>
+        <li>Item 02</li>
+        <li>Item 03</li>
+        <li>Item 04</li>
+        <li>Item 05</li>
+    </ul>
+</body>
 
-            move() {
-                console.log("Машина двигается со скоростью 80 км/час");
-            }
-        }
+<script>
+  
+   
+    let paragraphs = document.querySelectorAll("p.border");
 
-        class Truck extends Car {
-            weight;
+   
+    for (let i = 0; i < paragraphs.length; i++) {
+        paragraphs[i].style.border = "1px solid red";
+    }
 
-            loadCargo(weight) {
-                if (weight > 1000) {
-                    console.log("Этот грузовик не может перевозить более 1000кг груза");
-                } else {
-                    this.weight = weight;
-                    console.log(`В грузовик загружено ${this.weight}кг.`);
-                }
-            }
+</script>
 
-            move() {
-                console.log("Грузовик движется со скоростью 50 км/час");
-            }
-        }
-
-        let v1 = new Car();
-        v1.start();
-        v1.move();
-
-        let v2 = new Truck();
-        v2.loadCargo(1500);
-        v2.loadCargo(990);
-        v2.start();
-        v2.move();
+</html>
     </script>
 </body>
 </html>
