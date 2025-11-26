@@ -1,50 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task 3</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        td, th {
+            padding: 8px;
+        }
+    </style>
 </head>
-
 <body>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quam est debitis. Architecto quas asperiores
-        blanditiis a fugiat impedit eum dolorem cum rerum dolorum iste amet, ratione assumenda expedita maiores?
-    </p>
-    <p class="border">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore eligendi nemo est? Unde, doloribus, magnam
-        necessitatibus eos quia aliquam eaque quis aspernatur placeat sequi autem officiis, modi a exercitationem totam.
-    </p>
-    <p class="border">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi doloremque magni ut corporis, perspiciatis
-        tempore in, accusantium suscipit nemo quod saepe. Autem laudantium adipisci nemo magni repudiandae repellat
-        error. Dolore?
-    </p>
-    <ul>
-        <li>Item 01</li>
-        <li>Item 02</li>
-        <li>Item 03</li>
-        <li>Item 04</li>
-        <li>Item 05</li>
-    </ul>
-    <ul class="border">
-        <li>Item 01</li>
-        <li>Item 02</li>
-        <li>Item 03</li>
-        <li>Item 04</li>
-        <li>Item 05</li>
-    </ul>
-</body>
+    <table id="statsTable">
+        <tr>
+            <th>Месяц</th>
+            <th>Отдел 1</th>
+            <th>Отдел 2</th>
+        </tr>
+        <tr>
+            <td>Январь</td>
+            <td>50</td>
+            <td>120</td>
+        </tr>
+        <tr>
+            <td>Февраль</td>
+            <td>60</td>
+            <td>140</td>
+        </tr>
+        <tr>
+            <td>Март</td>
+            <td>125</td>
+            <td>115</td>
+        </tr>
+        <tr>
+            <td>Апрель</td>
+            <td>87</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>Март</td>
+            <td>95</td>
+            <td>80</td>
+        </tr>
+        <tr>
+            <td>Июнь</td>
+            <td>115</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td>Июль</td>
+            <td>125</td>
+            <td>100</td>
+        </tr>
+    </table>
 
-<script>
-    
-   let items = document.querySelectorAll("ul.border li");
+    <div id="result"></div>
+
+    <script>
+      
+    let table = document.querySelector("#statsTable");
+
+   
+    let rows = table.querySelectorAll("tr:not(:first-child)");
 
   
-    for (let i = 0; i < items.length; i++) {
-        items[i].style.border = "1px solid red";
-    }
-</script>
+    let sumDept1 = 0;
+    let sumDept2 = 0;
 
+    rows.forEach(function(row) {
+        let cells = row.querySelectorAll("td");
+        sumDept1 += Number(cells[1].textContent);
+        sumDept2 += Number(cells[2].textContent);
+    });
+
+    
+    let totalRow = document.createElement("tr");
+
+    let cell1 = document.createElement("td");
+    cell1.textContent = "Итого";
+    totalRow.appendChild(cell1);
+
+    let cell2 = document.createElement("td");
+    cell2.textContent = sumDept1;
+    totalRow.appendChild(cell2);
+
+    let cell3 = document.createElement("td");
+    cell3.textContent = sumDept2;
+    totalRow.appendChild(cell3);
+
+    
+    table.appendChild(totalRow);
+
+    
+    let resultDiv = document.querySelector("#result");
+    if (sumDept1 > sumDept2) {
+        resultDiv.textContent = "Отдел 1 сделал больше продаж";
+    } else if (sumDept2 > sumDept1) {
+        resultDiv.textContent = "Отдел 2 сделал больше продаж";
+    } else {
+        resultDiv.textContent = "Продажи обоих отделов равны";
+    }
+
+    </script>
+</body>
 </html>
